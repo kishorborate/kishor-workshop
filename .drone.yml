@@ -1,0 +1,5 @@
+pipeline:
+  audio:
+    image: node:12-alpine
+    commands:
+     - yarn audit --verbose
