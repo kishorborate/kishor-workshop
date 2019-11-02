@@ -20,9 +20,6 @@ steps:
       targets:
       - os: default
         uri: https://drone.daznplatform.com/${DRONE_REPO}/${DRONE_BUILD_NUMBER}
-
   trigger:
-    branch:
-    - master
     status:
     - failure
