@@ -6,4 +6,25 @@ steps:
 - name: audit
   image: node:12-alpine
   commands:
-  - yarn audit --verbose
+  - yarn auditt --verbose
+- name: notify
+  image: diyfr/drone_plugin_teams
+  webhook: "https://outlook.office.com/webhook/7f871c30-4338-45b0-b65e-ac59e5bfade1@30459df5-1e53-4d8b-a162-0ad2348546f1/IncomingWebhook/b58a265ed287439d926e39afd287d0fe/0aef5deb-1b0b-41f4-81e8-6d725c58242e"
+  content:
+    title: "Steps ${DRONE_FAILED_STEPS} failed for Commit : ${DRONE_COMMIT_MESSAGE} by ${DRONE_COMMIT_AUTHOR}"
+    text: "Branch: ${DRONE_BRANCH}, Commit SHA: ${DRONE_COMMIT_SHA}"
+    themeColor: "EA4300"
+    potentialAction:[
+      {
+      "@type": "OpenUri",
+      "name": "Check logs",
+      "targets": [
+        { "os": "default", "uri": "https://drone.daznplatform.com/${DRONE_REPO}/${DRONE_BUILD_NUMBER}" }
+      ]
+    }
+    ]
+  trigger:
+    branch:
+    - master
+    status:
+    - failure
