@@ -14,15 +14,13 @@ steps:
     title: "Steps ${DRONE_FAILED_STEPS} failed for Commit : ${DRONE_COMMIT_MESSAGE} by ${DRONE_COMMIT_AUTHOR}"
     text: "Branch: ${DRONE_BRANCH}, Commit SHA: ${DRONE_COMMIT_SHA}"
     themeColor: "EA4300"
-    potentialAction:[
-      {
-      "@type": "OpenUri",
-      "name": "Check logs",
-      "targets": [
-        { "os": "default", "uri": "https://drone.daznplatform.com/${DRONE_REPO}/${DRONE_BUILD_NUMBER}" }
-      ]
-    }
-    ]
+    potentialAction:
+    - "@type": OpenUri
+      name: Check logs
+      targets:
+      - os: default
+        uri: https://drone.daznplatform.com/${DRONE_REPO}/${DRONE_BUILD_NUMBER}
+
   trigger:
     branch:
     - master
