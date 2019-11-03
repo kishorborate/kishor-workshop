@@ -1,0 +1,4 @@
+dynamoDB:
+  kishor-workshop: 
+    arn: arn:aws:dynamodb:eu-central-1:930000340522:table/kishor-workshop
+    tableName: kishor-workshop

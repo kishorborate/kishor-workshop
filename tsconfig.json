@@ -7,9 +7,10 @@
     "noUnusedParameters": true,
     "sourceMap": true,
     "target": "es2017",
-    "outDir": "lib"
+    "outDir": "lib",
+    "module": "commonjs"
   },
-  "include": ["./**/*.ts"],
+  "include": ["./**/*.ts", "handlers/createSubscription.js"],
   "exclude": [
     "node_modules/**/*",
     ".serverless/**/*",
